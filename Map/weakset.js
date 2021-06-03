@@ -1,4 +1,4 @@
-// WeakSet
+// ! WeakSet
 // Unlike set, WeakSet can ONLY hold objects
 // Like WeakMap, the primary gain, is garbage collection. Uses weak reference
 // It is not iterable, is no get method, size is ALWAYS 0
