@@ -1,7 +1,7 @@
 /* =============  Template literal =============== */
 // 1
 // const name = "Jini";
-// const hello = `Hello, ${name}`;
+// const hello = `Hello, ${name}`; // interpolation
 // console.log(hello);
 
 // // 2: multi line
