@@ -1,18 +1,23 @@
-// // Reflect
+//! 1.  Reflect Definition
 // // CS concept
 // // Reflection is to examine, introspect, or modify your program at 
 // // run-time
 
+// simple ex
 // // console.log(typeof(data))
 
+//! 2. 
 // // Reflect and Proxy go hand in hand.
-// // Reflect is NOT instantiated or invoked
+// // Reflect is NOT instantiated or invoked unlike proxy.
 // // Reflect is a stand alone global object, that has methods
 // //  that are 1:1 with the proxy hanlders
 
 // // console.log(Math.round(1.323243))
 // // console.log(Reflect.get())
 
+
+
+// ! 3
 // if Proxies provide traps to change objects
 // 	Reflect provides introspection to get data about objects
 
@@ -32,6 +37,7 @@
 // // console.log(Reflect.get(arr,3))
 
 
+//! 4
 // const monster1 = {
 //   secret: 'easily scared',
 //   eyeCount: 4
@@ -42,7 +48,7 @@
 //     if (prop === 'secret') {
 //       return `${target.secret.substr(0, 4)} ... shhhh!`;
 //     } else {
-//       return Reflect.get(...arguments);
+//       return Reflect.get(...arguments); // arguments is js native object holding args. In this case ,target, prop and reciever will be unpacked using ... (spread operator)
 //     }
 //   }
 // };
@@ -56,6 +62,7 @@
 // // expected output: "easi ... shhhh!"
 
 
+//! 5
 // // ==========reflect.has===========
 // // work hasOwnProperty and "in"
 // const hgttg = {
@@ -68,6 +75,7 @@
 // console.log(Reflect.has(hgttg,'meaningOfLife'))
 
 
+//! 6 
 // =========reflect.apply==========
 function sum(...array){
 	// console.log(arguments)
@@ -84,6 +92,8 @@ sum.apply = function(){
 // console.log(Function.apply.call(sum, null, [1,2,3]))
 // console.log(Reflect.apply(sum, null, [1,2,3]))
 
+
+//! 7 
 // ===========Reflect.defineProperty==============
 // Object.defineProperty = allows you to define metaData about a prop.
 
@@ -113,11 +123,12 @@ bandit.run()
 // Reflect.defineProperty REPLACES Object.defineProperty
 
 
+//! 8
 // =========Reflect.getOwnPropertyDescriptor===========
 console.log(Object.getOwnPropertyDescriptor(bandit,'attack'))
 console.log(Reflect.getOwnPropertyDescriptor(bandit,'attack'))
 
 // - Reflect.deleteProperty replaces Object.deleteProperty
-// - Reflect.getPrototypeOf
-// - Reflect.setPrototypeOf
-// - Reflect.isExtensible
+// - Reflect.getPrototypeOf ...
+// - Reflect.setPrototypeOf ...
+// - Reflect.isExtensible ...
