@@ -1,4 +1,4 @@
-
+//! 1
 // // Generators ARE ITERATORS!
 // function* counter(){
 // 	let i = 0;
@@ -20,6 +20,7 @@
 // console.log(myGenerator.next().value)
 // console.log(myGenerator.next().value)
 
+//!2
 // function myIterator(myArray){
 // 	let i = 0;
 // 	return {
@@ -62,6 +63,7 @@ for(let elem of gen){
 	console.log(elem)
 }
 
+//! 3
 function* inigo(){
 	yield "Hello. My name is inigo montoya."
 	yield "You killed my father. Prepare to die."
