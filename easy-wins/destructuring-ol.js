@@ -1,4 +1,5 @@
-// Destructuring:
+// !passing object literal:
+// 1
 const someJSON = {
 	vote_count: 541,
 	id: 460793,
@@ -25,69 +26,112 @@ const someJSON = {
 
 // const title = someJSON.title;
 // const overview = someJSON.overview;
-// const release_date = someJSON.release_date
+// const release_date = someJSON.release_date;
 
+// // passing object literal
 // processData({
-// 	title,
+// 	title, // NOTE: someJSON.title property cannot be used "directly"
 // 	overview,
 // 	release_date
-// })
-
-const { title, overview, release_date } = someJSON;
-// console.log(title)
-// console.log(release_date)
-processData({
-	title,
-	release_date,
-	overview
-})
-
-// const { title: movieTitle, overview: movieOverview, release_date: x} = someJSON
-// console.log(x)
+// });
 
 // function processData(data){
-// 	// something important happens...
-// 	const { title, release_date, overview } = data
-// 	console.log(`${title} is an awesome flick. 
-// It came out on ${release_date}. ${overview}`);
+// 	console.log(data);
 // }
 
-function processData({ title, release_date, overview }){
-	// console.log(`${title} is an awesome flick. It came out on ${release_date}. ${overview}`);	
-}
 
-// go into nested objects
+
+
+// 2. desructuring object 1
+// const { title, overview, release_date } = someJSON; // automatic mapping. NOTE: const does "not" have name in this case
+// // console.log(title)
+// // console.log(release_date)
+// processData({
+// 	title,
+// 	release_date,
+// 	overview
+// });
+// function processData(data){
+// 	console.log(data);
+// }
+
+
+
+
+
+
+//// 3. desructuring object 2
+// const { title: movieTitle, overview: movieOverview, release_date: x} = someJSON;
+// console.log(x);
+
+
+
+
+
+//// 4. desructuring object 3
+// const { title, overview, release_date } = someJSON;
+// processData({
+// 	title,
+// 	release_date,
+// 	overview
+// });
+// // function processData(data){
+// // 	// inside function, desctructing object
+// // 	const { title, release_date, overview } = data;
+// // 	console.log(`${title} is an awesome flick. It came out on ${release_date}. ${overview}`);
+// // }
+
+// // best practice
+// function processData({ title, release_date, overview }){
+// 	// rather than desctructing object, in parameter section, desctructing object
+// 	console.log(`${title} is an awesome flick. It came out on ${release_date}. ${overview}`);	
+// }
+
+
+
+
+
+
+
+
+// 5. destructing "nested" objects
 // const { genre_ids: {[0]: firstGenre, [1]: secondGenre} } = someJSON;
-// console.log(firstGenre)
-// console.log(secondGenre)
+// console.log(firstGenre);
+// console.log(secondGenre);
 
-// getArea({height: 200, width: 70})
 
-// function getArea({width, height}){
+
+
+
+
+
+// 6. 
+const [first, second, third] = someJSON.genre_ids;
+console.log(first, second, third);
+const [,,,fourth,fifth] = someJSON.genre_ids;
+console.log(fourth, fifth);
+const [,two,...others] = someJSON.genre_ids; // rest operator
+console.log(others);
+
+
+
+
+
+
+
+// 7. desctructuring review: just see the code
+// function userProfile(userData){
+// 	// Awful Way
+// 	const name = userData.name;
+// 	const address = userData.address
 // 	// ...
-// 	console.log(width)
 // }
 
-// const [first, second, third] = someJSON.genre_ids
-// console.log(first, second, third);
-// const [,,,fourth,fifth] = someJSON.genre_ids
-// console.log(fourth, fifth);
-// const [,two,...others] = someJSON.genre_ids;
-// console.log(others)
+// function userProfile(userData){
+// 	// Better Way
+// 	const {name, address} = userData
+// }
 
-
-function userProfile(userData){
-	// Awful Way
-	const name = userData.name;
-	const address = userData.address
-	// ...
-}
-
-function userProfile(userData){
-	// Better Way
-	const {name, address} = userData
-}
-
-function userProfile({name, address}){
-	// Best Way
-}
+// function userProfile({name, address}){
+// 	// Best Way
+// }
