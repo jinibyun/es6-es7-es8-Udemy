@@ -1,5 +1,5 @@
 // generators, iterators, iterables, and for..of
-
+// see mozilla docs
 function* aGenerator(){
 	console.log("I just ran!")
 	yield 1;

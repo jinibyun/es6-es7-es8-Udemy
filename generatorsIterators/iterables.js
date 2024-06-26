@@ -1,4 +1,5 @@
-// Iterables
+//! 1
+// Iterables definition
 // 1. Iterables can be iterated over with for..of 
 // 2. Iterables have an iterator defined for them
 // Default: Array, Map, WeakMap, String, TypedArray, Set, WeakSet
@@ -7,7 +8,7 @@
 const aString = "Hello!";
 console.log(aString[Symbol.iterator]);
 const obj = {name: "Fred"}
-console.log(obj[Symbol.iterator])
+console.log(obj[Symbol.iterator]); // undefined. therefore, it is not iterable
 
 for(let letter of aString){
 	console.log(letter)
