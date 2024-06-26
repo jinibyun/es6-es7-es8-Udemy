@@ -1,4 +1,4 @@
-// The old way
+// ! The old way of definiting class: es5
 function SuperHero(name, strength, speed, weapon, cape){
 	this.name = name;
 	this.strength = strength;
@@ -12,6 +12,7 @@ function SuperHero(name, strength, speed, weapon, cape){
 	// }
 }
 
+// by prototyping property, dynamically assign property or method as below
 SuperHero.prototype.goodHero = true;
 SuperHero.prototype.powerUp = function(){
 	this.strength += 5;
@@ -20,4 +21,4 @@ SuperHero.prototype.powerUp = function(){
 let hero1 = new SuperHero("Hank", 10,5,"Fist",true);
 // hero1.name = "Ed"
 hero1.powerUp();
-console.log(hero1)
+console.log(hero1);
