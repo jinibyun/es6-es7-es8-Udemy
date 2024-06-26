@@ -1,3 +1,5 @@
+// refer to promiseChained.html
+// ! chained Promise
 const apiKey = `e9ddb24aed6d48c4342303aba5269e28`;
 const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=`;
 const imgUrl = `http://image.tmdb.org/t/p/w300/`;
@@ -67,20 +69,21 @@ document.getElementById('movie-form').addEventListener('submit',(event)=>{
 	event.preventDefault();
 	const movieElems = Array.from(document.getElementsByClassName('movie-title'))
 	movieElems.forEach((elem)=>{
-		addMovieToDom(elem.value);
+		// console.log(elem.value);
+		// addMovieToDom(elem.value);
 	})
 
-
-	// const moviePromise = getMovieData(movieElem[0].value)
-	// moviePromise.then((movieData)=>{
-	// 	// console.log(movieData);
-	// 	return getCast(movieData[0]);
-	// }).then((castInfo)=>{
-	// 	// console.log(personInfo)
-	// 	return getPerson(castInfo)
-	// }).then((personInfo)=>{
-	// 	console.log(personInfo)
-	// })	
+	const moviePromise = getMovieData(movieElems[0].value)
+	console.log(moviePromise)
+	moviePromise.then((movieData)=>{
+		console.log(movieData);
+		return getCast(movieData[0]);
+	}).then((castInfo)=>{
+		console.log(castInfo)
+		return getPerson(castInfo)
+	}).then((personInfo)=>{
+		// console.log(personInfo)
+	})	
 });
 
 		

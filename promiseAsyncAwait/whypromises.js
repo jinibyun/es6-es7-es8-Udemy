@@ -1,14 +1,6 @@
-// What is a promise and why should I care?
-// Does a promise make my code faster?
-//  - No. In fact, I think, it makes it slower.
-// Does a promise give me new powers?
-//  - No. JS runs exactly the same as always.
-// Uhhh... why would I want to use one then?
-
-// Q, bluebird
-
-// What is a promise?
-// All a promise is, is a JavaScript constructor that gives you a few cool methods.
+// ! Premise
+/*
+// ?1 All a promise is, is a JavaScript constructor that gives you a few cool methods.
 // - then
 // - catch
 // - All
@@ -20,49 +12,54 @@
 	// The callback itself has 2 args:
 	// 1. resolve - provided by JS ... a callback!
 	// 2. reject - provided by JS ... a callback!
-	// Now that we are inside the callback, the code starts running!
 
-// let myFirstPromise = new Promise((resolve, reject)=>{
-// 	console.log("Hey, I'm running!")
-// 	console.log("Hey, I'm also running!")
-// 	// ajax
-// 	// axios(
-// 	// 	method:"post")
-// 	// http
-// 	// sql
-// 	// mysql.query
-// 	// nosql
-// 	const lang = [
-// 		'JS',
-// 		'Java',
-// 		'Go'
-// 	]
-// 	reject("I did not finish") //Something went wrong!
-// 	resolve(lang) // Im DONE!
+// DEFINITION: Promise will add "callback" to "event queue"
+let myFirstPromise = new Promise((resolve, reject)=>{
+ 	console.log("Hey, I'm running!")
+ 	console.log("Hey, I'm also running!")
+ 	// series of processing
+	// ajax...
+ 	// http...
+ 	// sql...
+ 	// mysql.query...
+ 	// nosql...
+
+	const lang = [
+		'JS',
+		'Java',
+		'Go'
+	]
+	// "order" is important
+ 	reject("I did not finish") //Something went wrong!
+ 	resolve(lang) // Im DONE!
 	
-// });
-// console.log(myFirstPromise)
+});
+console.log(myFirstPromise)
 
-// // the then will go on the promise OUTSIDE of the promise.
-// // it will keep an eye on teh promise.
-// // when the resolve callback is run inside of the promise, the then will 
-// // fire off it's callback.
-// // then takes 1 arg: callback to run
-// myFirstPromise.then((promiseData)=>{
-// 	console.log(promiseData)
-// })
+// the "then" will go on the promise OUTSIDE of the promise.
+// it will keep an eye on the promise.
+// when the resolve callback is run inside of the promise, the then will 
+// fire off it's callback.
+// then takes 1 arg: callback to run
 
-// myFirstPromise.catch((promiseError)=>{
-// 	console.log(promiseError)
-// })
+// "then" will call "callback" from queue
+myFirstPromise.then((promiseData)=>{
+	console.log(promiseData)
+})
 
-// console.log("=====================")
-// console.log("I'm the last line in the program!")
-// console.log("=====================")
+myFirstPromise.catch((promiseError)=>{
+	console.log(promiseError)
+})
+
+console.log("=====================")
+console.log("I'm the last line in the program!")
+console.log("=====================")
+*/
 
 
 
 
+// ?2 
 function one(){
 	return new Promise((resolve, reject)=>{
 		setTimeout(()=>{
@@ -81,11 +78,17 @@ function two(){
 
 const promiseOne = one();
 const promiseTwo = two();
+// It shows pending because they are still in the queue
+console.log(promiseOne);
+console.log(promiseTwo);
+
+
 promiseOne.then((msgFromPromise)=>{
-	console.log("=====1====")
+	console.log("====1====")
 	console.log(msgFromPromise);
 	console.log(promiseOne);
 })
+
 promiseTwo.then((msgFromPromise)=>{
 	console.log("=====2====")
 	console.log(msgFromPromise);
@@ -111,7 +114,7 @@ Promise.all(promiseArray).then((data)=>{
 // race method...
 // Promise.race takes 1 arg:
 // an array of Promises
-// we run then just like always
+// we run then just like "always"
 // this will run as soon as ANY promise is resolved
 Promise.race(promiseArray).then((data)=>{
 	console.log("One of the promises is done. I don't care which!");
