@@ -1,10 +1,6 @@
-// // Proxy and Reflect
-// // Proxy = middleman.
-
-// // Proxies allow you to cut off almost any part of the process 
-// // of object change
-// // -- create middleware!
-// // -- we do this with traps!
+// ! Proxy and Reflect
+// // Proxies allow you to cut off almost any part of the process of object change
+// // create middleware! .we do this with traps!
 
 // // 1. Exclusive control over accessive and setting objects
 // // 2. validation
@@ -14,6 +10,7 @@
 // // 1. object to proxy
 // // 2. object serving as the handler
 
+// ? 1
 // let handler = {
 // 	// has as a property, each trap you want to set.
 // 	// get will run anytime anyone accesses this object
@@ -48,44 +45,50 @@
 // 		return true
 // 	}
 // }
-
 // let newObj = new Proxy({}, handler)
 // newObj.name = "Rob";
 // newObj.job = "Instructor";
-// // console.log("Name: ",newObj.name)
-// // console.log("Job: ",newObj.job)
-// // console.log("Age: ",newObj.age)
+// console.log("Name: ",newObj.name)
+// console.log("Job: ",newObj.job)
+// console.log("Age: ",newObj.age)
 // newObj.age = 36;
 // console.log("Age: ",newObj.age)
-// // newObj.age = "Ha ha";
-// console.log("Age: ",newObj.age)
+// //newObj.age = "Ha ha";
+// //console.log("Age: ",newObj.age)
 
 // if("name" in newObj){
 // 	console.log("I found it!")
 // }
 
 
+
+
+// ? 2
 // Make a proxy out of a constructor/class object
 // class Car{
 // 	constructor(make, model){
 // 		this.make = make;
 // 		this.model = model;
 // 	}
-// 	printInfo(){
-// 		console.log(this.make, this.model)
-// 	}
+// 	// printInfo(){
+// 	// 	console.log(this.make, this.model)
+// 	// }
 // }
 
 // let handler = {
 // 	get: (target, propName) =>{
-// 		console.log(`Someone is trying to get ${propName} property.`)
+// 		console.log(`Someone is trying to get ${propName} property.`);
+// 		return target[propName];
 // 	}
 // }
 
 // let aCar = new Car(`toyota`,`camry`);
 // let carProxy = new Proxy(aCar, handler)
 // console.log(carProxy.make)
+// console.log(carProxy.model)
 
+
+// ?3
 // apply trap
 function sum(x,y){
 	return x + y;
