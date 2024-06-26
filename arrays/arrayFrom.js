@@ -1,8 +1,10 @@
-// Array.from
+// ! Array.from
 
-const x = Array.from(`Robert`);
+//1
+const x = Array.from(`Robert`); // make arry from ...
 console.log(x)
 
+//2
 const y = Array.from(`${3+5}49`);
 console.log(y)
 
@@ -10,10 +12,12 @@ let harry = `Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to s
 let lotr = `When Mr. Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.`
 let orwell = `It was a bright cold day in April, and the clocks were striking thirteen.” — 1984, George Orwell`
 
+// 3. second parameter: arrow function make them "looping"
 let lines = Array.from([harry, lotr, orwell],(line)=>{
 	return `<li>${line}</li>`
 });
 console.log(lines)
 
+// 4
 let numbers = Array.from([2,3,4],(num)=>num+num);
 console.log(numbers)
