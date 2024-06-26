@@ -1,3 +1,5 @@
+//! 1
+
 // Array.prototype.includes() (Firefox 43)
 // TypedArray.prototype.includes() (Firefox 43)
 // Exponentiation operator (Firefox 52)
@@ -42,6 +44,7 @@ console.log(NaN === NaN)
 // fromIndex allows you start at whatever index you wish. - starts from the end
 // arr.includes(searchElement[, fromIndex])
 
+//! 2
 
 // Destructuring rest parameters
 // =============================
